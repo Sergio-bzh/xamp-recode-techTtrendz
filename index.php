@@ -1,10 +1,9 @@
-<?php require_once __DIR__. ('/templates/header.php');
+<?php
 
-$articles = [
-    ['title' => 'Php VS Python', 'content' => 'Test', 'image' => '1-php-vs-python.jpg'],
-    ['title' => 'React ou React Native ?', 'content' => 'Test', 'image' => '2-react-vs-react-native.jpg'],
-    ['title' => 'Le meilleurs outils devops', 'content' => 'Test', 'image' => '3-devops.png']
-];
+require_once __DIR__ . ('/templates/header.php');
+include __DIR__ . ('/lib/article.php');
+
+
 
 ?>
 
@@ -17,45 +16,17 @@ $articles = [
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
             <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                <a href="./actualites.php" class="btn btn-primary btn-lg px-4 me-md-2">Voir toutes les actualités</a>
             </div>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row text-align-center">
-        <?php ?>
-        <div class="col-md-4 my-2">
-            <div class="card">
-                <img src="./uploads/articles/1-php-vs-python.jpg" class="card-img-top" alt="image article">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 my-2">
-            <div class="card">
-                <img src="./uploads/articles/1-php-vs-python.jpg" class="card-img-top" alt="image article">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 my-2">
-            <div class="card">
-                <img src="./uploads/articles/1-php-vs-python.jpg" class="card-img-top" alt="image article">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+    <div class="row text-center">
+        <!-- On boucle ci-dessous pour afficher les "cards" des articles -->
+        <?php foreach ($articles as $key => $article) {
+            require __DIR__ . ('/templates/part_article.php');
+        } ?>
     </div>
 </div>
 
@@ -71,4 +42,4 @@ $articles = [
     </section>
 -->
 
-<?php require_once __DIR__. ('/templates/footer.php') ?>
+<?php require_once __DIR__ . ('/templates/footer.php') ?>
