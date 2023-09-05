@@ -1,10 +1,13 @@
 <?php
 
 include __DIR__ . ('/lib/article.php');
-require_once __DIR__ . ('/templates/header.php');
-
 $id = $_GET['id'];
 $article = $articles[$id];
+
+require_once __DIR__ . ('/lib/menu.php');
+$mainMenu['actualite.php'] = ['head_title' => $article['title'], 'meta_description' => substr($article['content'], 0, 12), 'exclude' => true];
+require_once __DIR__ . ('/templates/header.php');
+
 
 ?>
 <div class="container">

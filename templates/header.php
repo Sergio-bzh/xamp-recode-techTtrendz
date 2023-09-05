@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . ('../../lib/menu.php');
+//require_once __DIR__ . ('../../lib/menu.php');
 
 $currentPage = basename($_SERVER['SCRIPT_NAME']); // la fonction basename() affiche la ressource sans le chemin (path)
 //echo $currentPage;
@@ -13,11 +13,11 @@ $currentPage = basename($_SERVER['SCRIPT_NAME']); // la fonction basename() affi
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= $mainMmenu[$currentPage]['meta_description'] ?>">
+    <meta name="description" content="<?= $mainMenu[$currentPage]['meta_description'] ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="./assets/css/override-bootstrap.css">
-    <title><?= $mainMmenu[$currentPage]['head_title'] ?></title>
+    <title><?= $mainMenu[$currentPage]['head_title'] ?></title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@ $currentPage = basename($_SERVER['SCRIPT_NAME']); // la fonction basename() affi
             </div>
 
             <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <?php foreach ($mainMmenu as $key => $menuItem) { ?>
+                <?php foreach ($mainMenu as $key => $menuItem) { ?>
                     <li class="nav-item"><a href="../<?= $key ?>" class="nav-link <?= $key === $currentPage ? 'active' : '' ?> px-2"><?= $menuItem['menu_title'] ?></a></li>
                 <?php } ?>
             </ul>
