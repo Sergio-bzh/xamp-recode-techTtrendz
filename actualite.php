@@ -5,7 +5,7 @@ $id = $_GET['id'];
 $article = $articles[$id];
 
 require_once __DIR__ . ('/lib/menu.php');
-$mainMenu['actualite.php'] = ['head_title' => $article['title'], 'meta_description' => substr($article['content'], 0, 12), 'exclude' => true];
+$mainMenu['actualite.php'] = ['menu_title' => $article['title'], 'head_title' => $article['title'], 'meta_description' => substr($article['content'], 0, 45), 'exclude' => true];
 require_once __DIR__ . ('/templates/header.php');
 
 

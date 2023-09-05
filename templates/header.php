@@ -30,9 +30,11 @@ $currentPage = basename($_SERVER['SCRIPT_NAME']); // la fonction basename() affi
             </div>
 
             <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <?php foreach ($mainMenu as $key => $menuItem) { ?>
-                    <li class="nav-item"><a href="../<?= $key ?>" class="nav-link <?= $key === $currentPage ? 'active' : '' ?> px-2"><?= $menuItem['menu_title'] ?></a></li>
-                <?php } ?>
+                <?php foreach ($mainMenu as $key => $menuItem) {
+                    if (!$menuItem['exclude']) { ?>
+                        <li class="nav-item"><a href="../<?= $key ?>" class="nav-link <?= $key === $currentPage ? 'active' : '' ?> px-2"><?= $menuItem['menu_title'] ?></a></li>
+                <?php }
+                } ?>
             </ul>
 
             <div class="col-md-3 text-end">
