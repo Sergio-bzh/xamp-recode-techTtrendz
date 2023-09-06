@@ -1,39 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once __DIR__ . ('/lib/menu.php');
+require_once __DIR__ . ('/templates/header.php');
+include __DIR__ . ('/lib/article.php');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
-    <link rel="stylesheet" href="./assets/css/override-bootstrap.css">
-    <title>Techtrendz</title>
-</head>
 
-<body>
-    <div class="container">
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <img src="./assets/images/logo-tech-trendz.png" alt="Logo TechTrendz" width="150">
-                </a>
+
+?>
+
+<div class="container col-xxl-12 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="./assets/images/logo-tech-trendz.png" class="d-block mx-lg-auto img-fluid" alt="Logo TechTrendz" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
+            <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="./actualites.php" class="btn btn-primary btn-lg px-4 me-md-2">Voir toutes les actualités</a>
             </div>
-
-            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="#" class="nav-link px-2">Features</a></li>
-                <li><a href="#" class="nav-link px-2">Pricing</a></li>
-                <li><a href="#" class="nav-link px-2">FAQs</a></li>
-                <li><a href="#" class="nav-link px-2">About</a></li>
-            </ul>
-
-            <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
-            </div>
-        </header>
+        </div>
     </div>
-    <!--
+</div>
+<div class="container">
+    <div class="row text-center">
+        <!-- On boucle ci-dessous pour afficher les "cards" des articles -->
+        <?php foreach ($articles as $key => $article) {
+            require __DIR__ . ('/templates/part_article.php');
+        } ?>
+    </div>
+</div>
+
+
+<!-- explication de la boucle foreach()
     <section class="utilisateurs">
         <?php foreach ($variable as $key => $value) { ?>
             <article class="utilisateur">
@@ -43,6 +41,5 @@
         <?php } ?>
     </section>
 -->
-</body>
 
-</html>
+<?php require_once __DIR__ . ('/templates/footer.php') ?>
